@@ -1,0 +1,4 @@
+public enum SwimmingStyles {
+    FREESTYLE, BUTTERFLY, BREASTSTROKE, BACKSTROKE, MEDLEY
+
+}
