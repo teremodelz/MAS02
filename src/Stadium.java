@@ -11,6 +11,7 @@ public class Stadium implements Serializable {
 
     private static List<Stadium> stadiumList = new ArrayList<>();
     public Stadium(String name){
+        if(name == null || name.isBlank()) throw new IllegalArgumentException("Name can't be null or blank.");
         this.name = name;
         stadiumList.add(this);
     }
