@@ -30,7 +30,7 @@ public class Stadium implements Serializable {
 
     public void removePart(Sector sector){
         if(sector == null) throw new IllegalArgumentException("Sector can't be null");
-        if(!parts.contains(sector)) throw new IllegalArgumentException("The stadium isn't connected with this sector.");
+        if(!parts.contains(sector)) return;
         parts.remove(sector);
         allParts.remove(sector);
         if(sector.getStadium()!=null){
