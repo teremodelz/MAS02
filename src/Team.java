@@ -1,12 +1,16 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Team implements Serializable {
     private String name;
     private List<Player> players = new ArrayList<>();
+    private static List<Team> teamList = new ArrayList<>();
     public Team(String name){
+        if(name==null || name.isBlank()) throw new IllegalArgumentException("Team can't be null or blank");
         this.name = name;
+        teamList.add(this);
     }
     public void addPlayer(Player player){
         if(players.contains(player)){
@@ -31,6 +35,16 @@ public class Team implements Serializable {
 
     public List<Player> getPlayers() {
         return new ArrayList<>(players);
+    }
+
+    public void remove(){
+        if(!teamList.contains(this)) System.out.println("This team doesn't exist in the list.");
+        for(Player player : players){
+            removePlayer(player);
+            //tu zrobic pozniej logi zeby sprawdzic czy wszystko ok z metodą
+        }
+        this.name = null;
+        teamList.remove(this);
     }
 
 
