@@ -58,7 +58,7 @@ public class Athlete implements Serializable {
     }
 
     public void remove(){
-        if(!athleteList.contains(this)) throw new NoSuchElementException("This element is already removed.");
+        if(!athleteList.contains(this)) System.out.println("This element is already removed.");
         for(AthleteTraining at : new ArrayList<>(athleteTrainings)){
             at.remove();
         }

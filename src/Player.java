@@ -45,7 +45,10 @@ public class Player implements Serializable {
     }
 
     public void remove(){
-        if(!playerList.contains(this)) System.out.println("This player doesnt exist in the list.");
+        if(!playerList.contains(this)) {
+            System.out.println("This player doesnt exist in the list.");
+            return;
+        }
         setTeam(null);
         this.nickname = null;
         playerList.remove(this);
