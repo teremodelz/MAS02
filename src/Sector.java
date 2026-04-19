@@ -55,4 +55,8 @@ public class Sector implements Serializable {
     public static List<Sector> getSectorList() {
         return new ArrayList<>(sectorList);
     }
+
+    public static void setSectorList(List<Sector> sectorList) {
+        Sector.sectorList = sectorList;
+    }
 }

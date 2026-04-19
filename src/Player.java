@@ -18,6 +18,10 @@ public class Player implements Serializable {
         playerList.add(this);
     }
 
+    public static List<Player> getPlayerList() {
+        return playerList;
+    }
+
     public void setTeam(Team newTeam) {
         if(this.team != newTeam) {
             if(this.team != null) {
@@ -58,5 +62,9 @@ public class Player implements Serializable {
     public String toString() {
         var info = "Player: " +nickname+ "\n";
         return info;
+    }
+
+    public static void setPlayerList(List<Player> playerList) {
+        Player.playerList = playerList;
     }
 }

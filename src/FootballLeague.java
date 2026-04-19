@@ -17,6 +17,11 @@ public class FootballLeague implements Serializable {
         footballLeagueList.add(this);
     }
 
+
+    public static List<FootballLeague> getFootballLeagueList() {
+        return footballLeagueList;
+    }
+
     public String getName() {
         return name;
     }
@@ -63,5 +68,9 @@ public class FootballLeague implements Serializable {
         this.country = null;
         this.tier = 0;
         footballLeagueList.remove(this);
+    }
+
+    public static void setFootballLeagueList(List<FootballLeague> footballLeagueList) {
+        FootballLeague.footballLeagueList = footballLeagueList;
     }
 }

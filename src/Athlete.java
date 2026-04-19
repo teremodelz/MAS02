@@ -65,4 +65,7 @@ public class Athlete implements Serializable {
         athleteList.remove(this);
     }
 
+    public static void setAthleteList(List<Athlete> athleteList) {
+        Athlete.athleteList = athleteList;
+    }
 }

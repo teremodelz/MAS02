@@ -58,6 +58,7 @@ public class AthleteTraining implements Serializable {
         athleteTrainingsList.remove(this);
     }
 
-
-
+    public static void setAthleteTrainingsList(List<AthleteTraining> athleteTrainingsList) {
+        AthleteTraining.athleteTrainingsList = athleteTrainingsList;
+    }
 }

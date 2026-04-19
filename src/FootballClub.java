@@ -74,4 +74,7 @@ public class FootballClub implements Serializable {
         footballClubList.remove(this);
     }
 
+    public static void setFootballClubList(List<FootballClub> footballClubList) {
+        FootballClub.footballClubList = footballClubList;
+    }
 }

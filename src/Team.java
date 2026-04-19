@@ -12,6 +12,11 @@ public class Team implements Serializable {
         this.name = name;
         teamList.add(this);
     }
+
+    public static List<Team> getTeamList() {
+        return teamList;
+    }
+
     public void addPlayer(Player player){
         if(players.contains(player)){
             throw new IllegalArgumentException("You can't add player again to the team.");
@@ -64,4 +69,9 @@ public class Team implements Serializable {
 
     //ASOCJACJA KWALIFIKOWANA
     //FOOTBALL LEAGUE[NAME] - FOOTBALL CLUB
+
+
+    public static void setTeamList(List<Team> teamList) {
+        Team.teamList = teamList;
+    }
 }

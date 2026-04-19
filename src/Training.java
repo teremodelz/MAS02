@@ -66,4 +66,7 @@ public class Training implements Serializable {
         trainingList.remove(this);
     }
 
+    public static void setTrainingList(List<Training> trainingList) {
+        Training.trainingList = trainingList;
+    }
 }

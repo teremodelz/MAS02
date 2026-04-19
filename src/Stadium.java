@@ -51,6 +51,14 @@ public class Stadium implements Serializable {
         return name;
     }
 
+    public Double getTotalCapacity(){
+        Double toReturn = (double) 0;
+        for(Sector sector : parts){
+            toReturn += sector.getCapacity();
+        }
+        return toReturn;
+    }
+
     public List<Sector> getParts() {
         return new ArrayList<>(parts);
     }
@@ -61,5 +69,9 @@ public class Stadium implements Serializable {
 
     public static List<Stadium> getStadiumList() {
         return new ArrayList<>(stadiumList);
+    }
+
+    public static void setStadiumList(List<Stadium> stadiumList) {
+        Stadium.stadiumList = stadiumList;
     }
 }
