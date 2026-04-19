@@ -23,7 +23,7 @@ public class Team implements Serializable {
 
     public void removePlayer(Player player){
         if(!players.contains(player)){
-            throw new IllegalArgumentException("Removing player who already isn't a part of a team is impossible.");
+            throw new IllegalArgumentException("Removing player who isn't a part of a team is impossible.");
         }
         players.remove(player);
         player.setTeam(null);
@@ -38,7 +38,10 @@ public class Team implements Serializable {
     }
 
     public void remove(){
-        if(!teamList.contains(this)) System.out.println("This team doesn't exist in the list.");
+        if(!teamList.contains(this)) {
+            System.out.println("This team doesn't exist in the list.");
+            return;
+        }
         for(Player player : players){
             removePlayer(player);
             //tu zrobic pozniej logi zeby sprawdzic czy wszystko ok z metodą

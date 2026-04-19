@@ -38,6 +38,15 @@ public class Stadium implements Serializable {
         }
     }
 
+    public void remove() {
+        for(Sector sector : new ArrayList<>(parts)) {
+            sector.remove();
+        }
+        this.name = null;
+        stadiumList.remove(this);
+    }
+
+
     public String getName() {
         return name;
     }
