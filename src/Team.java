@@ -17,12 +17,14 @@ public class Team implements Serializable {
         return teamList;
     }
 
-    public void addPlayer(Player player){
-        if(players.contains(player)){
+    public void addPlayer(Player player) {
+        if(players.contains(player)) {
             throw new IllegalArgumentException("You can't add player again to the team.");
         }
         players.add(player);
-        player.setTeam(this);
+        if(player.getTeam() != this) {
+            player.setTeam(this);
+        }
     }
 
 
@@ -31,7 +33,9 @@ public class Team implements Serializable {
             throw new IllegalArgumentException("Removing player who isn't a part of a team is impossible.");
         }
         players.remove(player);
-        player.setTeam(null);
+        if(player.getTeam() != null) {
+            player.setTeam(null);
+        }
     }
 
     public String getName() {
@@ -47,7 +51,7 @@ public class Team implements Serializable {
             System.out.println("This team doesn't exist in the list.");
             return;
         }
-        for(Player player : players){
+        for(Player player : new ArrayList<>(players)){
             removePlayer(player);
             //tu zrobic pozniej logi zeby sprawdzic czy wszystko ok z metodą
         }

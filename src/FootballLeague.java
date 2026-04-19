@@ -38,17 +38,23 @@ public class FootballLeague implements Serializable {
         return new TreeMap<>(footballClubQualif);
     }
 
-    public void addFootballClubQualif(FootballClub footballClub){
-        if(footballClubQualif.containsValue(footballClub)) throw new IllegalArgumentException("This club is already added to this league.");
+    public void addFootballClubQualif(FootballClub footballClub) {
+        if(footballClubQualif.containsValue(footballClub))
+            throw new IllegalArgumentException("This club is already added to this league.");
         footballClubQualif.put(footballClub.generateShortcode(), footballClub);
-        footballClub.setFootballLeague(this);
+        if(footballClub.getFootballLeague() != this) {
+            footballClub.setFootballLeague(this);
+        }
     }
 
 
-    public void removeFootballClubQualif(FootballClub footballClub){
-        if(!footballClubQualif.containsValue(footballClub)) throw new IllegalArgumentException("This club doesn't exist in this league");
-        footballClub.setFootballLeague(null);
+    public void removeFootballClubQualif(FootballClub footballClub) {
+        if(!footballClubQualif.containsValue(footballClub))
+            throw new IllegalArgumentException("This club doesn't exist in this league.");
         footballClubQualif.remove(footballClub.generateShortcode());
+        if(footballClub.getFootballLeague() != null) {
+            footballClub.setFootballLeague(null);
+        }
     }
 
     public FootballClub findFootballClubQualifByShortCode(String shortCode){

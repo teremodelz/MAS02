@@ -11,11 +11,12 @@ public class Player implements Serializable {
     public Player(String nickname, Team team){
         if(nickname.isEmpty()|| nickname.isBlank())
             throw new IllegalArgumentException("Nickname can't be null");
-        this.nickname = nickname;
-        if(team==null)
+        if(team==null) {
             throw new IllegalArgumentException("Team can't be null");
-        this.team = team;
+        }
+        this.nickname = nickname;
         playerList.add(this);
+        setTeam(team);
     }
 
     public static List<Player> getPlayerList() {
